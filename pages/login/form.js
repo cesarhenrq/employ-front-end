@@ -2,6 +2,8 @@ import createLoginButton from './loginButton';
 import createRegisterButton from './registerButton';
 import createButtonsContainer from './buttonsContainer';
 
+import login from './login';
+
 function createForm() {
   const form = document.createElement('form', { id: 'login-form' });
 
@@ -24,6 +26,8 @@ function createForm() {
 
   buttonsContainer.appendChild(createLoginButton());
   buttonsContainer.appendChild(createRegisterButton());
+
+  form.addEventListener('submit', login);
 }
 
 export default createForm;

@@ -1,9 +1,9 @@
 function createRegisterButton() {
-  const registerButton = document.createElement('button');
-  registerButton.setAttribute('id', 'registerButton');
-  registerButton.setAttribute('type', 'button');
-  registerButton.setAttribute('class', 'login-page-buttons');
-  registerButton.innerHTML = 'Register';
+  const registerButton = $("<button></button>");
+  registerButton.attr("id", "registerButton");
+  registerButton.attr("type", "button");
+  registerButton.addClass("login-page-buttons");
+  registerButton.text("Register");
   return registerButton;
 }
 

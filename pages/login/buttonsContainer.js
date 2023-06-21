@@ -1,6 +1,8 @@
+import $ from "jquery";
+
 function createButtonsContainer() {
-  const buttonsContainer = document.createElement('div');
-  buttonsContainer.setAttribute('id', 'buttonsContainer');
+  const buttonsContainer = $("<div></div>");
+  buttonsContainer.attr("id", "buttonsContainer");
   return buttonsContainer;
 }
 

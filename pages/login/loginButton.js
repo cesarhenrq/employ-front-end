@@ -1,9 +1,9 @@
 function createLoginButton() {
-  const loginButton = document.createElement('button');
-  loginButton.setAttribute('id', 'loginButton');
-  loginButton.setAttribute('type', 'submit');
-  loginButton.setAttribute('class', 'login-page-buttons');
-  loginButton.innerHTML = 'Login';
+  const loginButton = $("<button></button>");
+  loginButton.attr("id", "loginButton");
+  loginButton.attr("type", "submit");
+  loginButton.addClass("login-page-buttons");
+  loginButton.text("Login");
   return loginButton;
 }
 

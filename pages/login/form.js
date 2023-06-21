@@ -1,15 +1,15 @@
-import createLoginButton from './loginButton';
-import createRegisterButton from './registerButton';
-import createButtonsContainer from './buttonsContainer';
+import createLoginButton from "./loginButton";
+import createRegisterButton from "./registerButton";
+import createButtonsContainer from "./buttonsContainer";
 
-import login from './login';
+import login from "./login";
 
 function createForm() {
-  const form = document.createElement('form', { id: 'login-form' });
+  const form = $("<form></form>", { id: "login-form" });
 
-  document.querySelector('#container').appendChild(form);
+  $("#container").append(form);
 
-  form.innerHTML = `
+  form.html(`
     <div class="form-group">
       <label for="email">Email</label>
       <input type="text" name="email" placeholder="Email" id="email">
@@ -18,16 +18,16 @@ function createForm() {
       <label for="password">Password</label>
       <input type="password" name="password" placeholder="Password" id="password">
     </div>
-  `;
+  `);
 
-  form.appendChild(createButtonsContainer());
+  form.append(createButtonsContainer());
 
-  const buttonsContainer = document.querySelector('#buttonsContainer');
+  const buttonsContainer = $("#buttonsContainer");
 
-  buttonsContainer.appendChild(createLoginButton());
-  buttonsContainer.appendChild(createRegisterButton());
+  buttonsContainer.append(createLoginButton());
+  buttonsContainer.append(createRegisterButton());
 
-  form.addEventListener('submit', login);
+  form.on("submit", login);
 }
 
 export default createForm;

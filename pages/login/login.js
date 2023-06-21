@@ -21,7 +21,7 @@ function login(event) {
       } else {
         localStorage.setItem("token", response.token);
         localStorage.setItem("data", JSON.stringify(response.data));
-        window.location.href = "../task-manager/task-manager.html";
+        window.location.href = "../../pages/task-manager/task-manager.html";
       }
     })
     .catch(function (error) {

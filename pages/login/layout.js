@@ -13,5 +13,5 @@ $("#app").html(`
 createForm();
 
 $("#registerButton").on("click", () => {
-  window.location.href = "../../pages/register/register.html";
+  window.location.href = "./../../pages/register/register.html";
 });

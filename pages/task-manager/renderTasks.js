@@ -20,16 +20,12 @@ function renderTasks(tasks) {
         `;
 
     $("#table tbody").append(row);
-  });
 
-  tasks.forEach((task) => {
-    const deleteButton = document.getElementById(`delete-task-${task.id}`);
-    deleteButton.addEventListener("click", () => {
+    $(`#delete-task-${task.id}`).on("click", () => {
       deleteTask(task.id);
     });
 
-    const editButton = document.getElementById(`edit-task-${task.id}`);
-    editButton.addEventListener("click", () => {
+    $(`#edit-task-${task.id}`).on("click", () => {
       createEditTaskModal(task);
     });
   });

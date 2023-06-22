@@ -1,8 +1,7 @@
 import $ from "jquery";
 
 function createButtonsContainer() {
-  const buttonsContainer = $("<div></div>");
-  buttonsContainer.attr("id", "buttonsContainer");
+  const buttonsContainer = $("<div>", { id: "buttonsContainer" });
   return buttonsContainer;
 }
 

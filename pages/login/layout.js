@@ -2,16 +2,22 @@ import "../../styles/login/style.css";
 
 import createForm from "./form";
 
-$("#app").html(`
-  <div id="login">
-    <div id="container">
-      <div class="title"><h1>Log in</h1></div>
+$(function () {
+  const appContainer = $("#app");
+
+  const loginHTML = `
+    <div id="login">
+      <div id="container">
+        <div class="title"><h1>Log in</h1></div>
+      </div>
     </div>
-  </div>
-`);
+  `;
 
-createForm();
+  appContainer.html(loginHTML);
 
-$("#registerButton").on("click", () => {
-  window.location.href = "./../../pages/register/index.html";
+  createForm();
+
+  $("#registerButton").on("click", function () {
+    window.location.href = "./../../pages/register/index.html";
+  });
 });

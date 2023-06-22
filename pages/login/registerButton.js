@@ -1,9 +1,12 @@
+import $ from "jquery";
+
 function createRegisterButton() {
-  const registerButton = $("<button></button>");
-  registerButton.attr("id", "registerButton");
-  registerButton.attr("type", "button");
-  registerButton.addClass("login-page-buttons");
-  registerButton.text("Register");
+  const registerButton = $("<button>", {
+    id: "registerButton",
+    type: "button",
+    class: "login-page-buttons",
+    text: "Register",
+  });
   return registerButton;
 }
 

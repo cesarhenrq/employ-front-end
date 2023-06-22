@@ -1,3 +1,5 @@
+import $ from "jquery";
+
 import editTask from "./editTask";
 
 function createEditTaskModal(task) {
@@ -16,11 +18,11 @@ function createEditTaskModal(task) {
             <form>
                 <div class="form-group">
                     <label for="task-title">Title</label>
-                    <input type="text" id="task-title" placeholder="Task title" value="${task.title}"/>
+                    <input type="text" id="task-title" placeholder="Task title" value="${task.title}">
                 </div>
                 <div class="form-group">
                     <label for="task-description">Description</label>
-                    <input type="text" id="task-description" placeholder="Task description" value="${task.description}" />
+                    <input type="text" id="task-description" placeholder="Task description" value="${task.description}">
                 </div>
                 <div class="form-group">
                     <label for="task-status">Status</label>
@@ -31,7 +33,7 @@ function createEditTaskModal(task) {
                     </select>
                 </div>
 
-                <button type="submit" id="edit-task" >Edit Task</button>
+                <button type="submit" id="edit-task">Edit Task</button>
             </form>
         </div>
     </div>
@@ -49,8 +51,8 @@ function createEditTaskModal(task) {
     modal.remove();
   });
 
-  modal.find("#edit-task").on("click", (evt) => {
-    evt.preventDefault();
+  modal.find("#edit-task").on("click", function (event) {
+    event.preventDefault();
     editTask(task.id);
   });
 

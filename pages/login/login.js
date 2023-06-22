@@ -12,7 +12,11 @@ function login(event) {
     password,
   };
 
-  console.log(formData);
+  if (!email || !password) {
+    $("#loginButton").attr("disabled", false);
+
+    return alert("Please fill all the fields!");
+  }
 
   AjaxRequest.login("users/login", formData)
     .then(function (response) {
@@ -21,7 +25,7 @@ function login(event) {
       } else {
         localStorage.setItem("token", response.token);
         localStorage.setItem("data", JSON.stringify(response.data));
-        window.location.href = "../../pages/task-manager/task-manager.html";
+        window.location.href = "./../../pages/task-manager/task-manager.html";
       }
     })
     .catch(function (error) {

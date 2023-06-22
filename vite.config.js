@@ -1,7 +1,7 @@
 import { resolve } from "path";
 import { defineConfig } from "vite";
 
-defineConfig({
+export default defineConfig({
   build: {
     rollupOptions: {
       input: {
@@ -12,5 +12,3 @@ defineConfig({
     },
   },
 });
-
-export { defineConfig };

@@ -12,8 +12,15 @@ const expires_in = JSON.parse(localStorage.getItem("data")).expires_in;
 setTimeout(() => {
   localStorage.clear();
   alert("Session expired. Please login again.");
-  window.location.href = "/";
+  window.location.href = "./";
 }, expires_in);
+
+const token = localStorage.getItem("token");
+
+if (!token) {
+  alert("Please login first!");
+  window.location.href = "./";
+}
 
 $("#app").html(`
   <div id="task-manager">

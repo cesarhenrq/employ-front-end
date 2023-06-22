@@ -1,10 +1,13 @@
+import $ from "jquery";
+
 function createCancelButton() {
-  const registerButton = $("<button></button>");
-  registerButton.attr("id", "cancelButton");
-  registerButton.attr("type", "button");
-  registerButton.addClass("register-page-buttons");
-  registerButton.text("Cancel");
-  return registerButton;
+  const cancelButton = $("<button>", {
+    id: "cancelButton",
+    type: "button",
+    class: "register-page-buttons",
+    text: "Cancel",
+  });
+  return cancelButton;
 }
 
 export default createCancelButton;

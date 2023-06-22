@@ -1,10 +1,11 @@
+import $ from "jquery";
+
 import addTask from "./addTask";
 
 function createAddTaskModal() {
-  const modal = $("<div></div>").attr({
-    class: "modal fade",
-    id: "add-task-modal",
-  });
+  const modal = $("<div></div>")
+    .addClass("modal fade")
+    .attr("id", "add-task-modal");
 
   modal.html(`
     <div class="modal-dialog">

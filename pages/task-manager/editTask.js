@@ -9,11 +9,18 @@ function editTask(id) {
   const description = $("#task-description").val();
   const status = $("#task-status").val();
 
+  $("#edit-task").attr("disabled", true);
+
   const task = {
     title,
     description,
     status,
   };
+
+  if (!title || !description || !status) {
+    $("#edit-task").attr("disabled", false);
+    return alert("Please fill all the fields!");
+  }
 
   AjaxRequest.editTask(`tasks/update/${id}`, task).then(function (response) {
     if (response.message === "Task updated!") {
@@ -29,6 +36,8 @@ function editTask(id) {
       alert("Something went wrong!");
     }
   });
+
+  $("#edit-task").attr("disabled", false);
 }
 
 export default editTask;

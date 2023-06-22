@@ -13,6 +13,6 @@ $("#app").append(`
 createForm();
 
 $("#cancelButton").on("click", () => {
-  window.location.href = "../../index.html";
+  window.location.href = "./../../index.html";
   console.log("cancel button clicked");
 });

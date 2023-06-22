@@ -6,6 +6,9 @@ import renderTasks from "./renderTasks";
 
 function addTask(event) {
   event.preventDefault();
+
+  $("#add-task").attr("disabled", true);
+
   const title = $("#task-title").val();
   const description = $("#task-description").val();
   const status = $("#task-status").val();
@@ -15,6 +18,11 @@ function addTask(event) {
     description,
     status,
   };
+
+  if (!title || !description || !status) {
+    $("#add-task").attr("disabled", false);
+    return alert("Please fill all the fields!");
+  }
 
   AjaxRequest.addTask("tasks/create", task)
     .then(function (response) {
@@ -34,6 +42,8 @@ function addTask(event) {
     .catch(function (error) {
       alert(error);
     });
+
+  $("#add-task").attr("disabled", false);
 }
 
 export default addTask;

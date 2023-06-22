@@ -14,13 +14,27 @@ function register(event) {
     password,
   };
 
+  const isEmailValid = email.indexOf("@") === -1 || email.indexOf(".") === -1;
+
+  if (!name || !email || !password || isEmailValid) {
+    $("#registerButton").attr("disabled", false);
+
+    if (password.length < 6)
+      return alert("Password must be at least 6 characters long!");
+
+    if (email.indexOf("@") === -1 || email.indexOf(".") === -1)
+      return alert("Invalid email!");
+
+    return alert("Please fill all the fields!");
+  }
+
   AjaxRequest.register("users/create", formData)
     .then(function (response) {
       if (response.message === "Further information required!") {
         alert("Further information required!");
       } else if (response.message === "User created!") {
         alert("User created!");
-        window.location.href = "../../index.html";
+        window.location.href = "./../../index.html";
       } else if (response.message === "User already exists!") {
         alert("User already exists!");
       } else {

@@ -3,21 +3,17 @@ import AjaxRequest from "../../services/ajax_request.class.js";
 function register(event) {
   event.preventDefault();
 
-  $("#registerButton").attr("disabled", true);
+  const registerButton = $("#registerButton");
+  registerButton.prop("disabled", true);
+
   const name = $("#name").val();
   const email = $("#email").val();
   const password = $("#password").val();
 
-  const formData = {
-    name,
-    email,
-    password,
-  };
-
   const isEmailValid = email.indexOf("@") === -1 || email.indexOf(".") === -1;
 
   if (!name || !email || !password || isEmailValid) {
-    $("#registerButton").attr("disabled", false);
+    registerButton.prop("disabled", false);
 
     if (password.length < 6)
       return alert("Password must be at least 6 characters long!");
@@ -27,6 +23,12 @@ function register(event) {
 
     return alert("Please fill all the fields!");
   }
+
+  const formData = {
+    name,
+    email,
+    password,
+  };
 
   AjaxRequest.register("users/create", formData)
     .then(function (response) {
@@ -43,9 +45,10 @@ function register(event) {
     })
     .catch(function (error) {
       alert(error);
+    })
+    .finally(function () {
+      registerButton.prop("disabled", false);
     });
-
-  $("#registerButton").attr("disabled", false);
 }
 
 export default register;

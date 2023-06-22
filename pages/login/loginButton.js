@@ -1,9 +1,12 @@
+import $ from "jquery";
+
 function createLoginButton() {
-  const loginButton = $("<button></button>");
-  loginButton.attr("id", "loginButton");
-  loginButton.attr("type", "submit");
-  loginButton.addClass("login-page-buttons");
-  loginButton.text("Login");
+  const loginButton = $("<button>", {
+    id: "loginButton",
+    type: "submit",
+    class: "login-page-buttons",
+    text: "Login",
+  });
   return loginButton;
 }
 

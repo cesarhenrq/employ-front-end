@@ -9,7 +9,13 @@ function editTask(id) {
   const description = $("#task-description").val();
   const status = $("#task-status").val();
 
-  $("#edit-task").attr("disabled", true);
+  const editTaskButton = $("#edit-task");
+  editTaskButton.attr("disabled", true);
+
+  if (!title || !description || !status) {
+    editTaskButton.attr("disabled", false);
+    return alert("Please fill all the fields!");
+  }
 
   const task = {
     title,
@@ -17,27 +23,24 @@ function editTask(id) {
     status,
   };
 
-  if (!title || !description || !status) {
-    $("#edit-task").attr("disabled", false);
-    return alert("Please fill all the fields!");
-  }
-
-  AjaxRequest.editTask(`tasks/update/${id}`, task).then(function (response) {
-    if (response.message === "Task updated!") {
-      alert("Task updated!");
-      getTasks()
-        .then(function (tasks) {
-          renderTasks(tasks.data);
-        })
-        .catch(function (error) {
-          alert(error);
-        });
-    } else {
-      alert("Something went wrong!");
-    }
-  });
-
-  $("#edit-task").attr("disabled", false);
+  AjaxRequest.editTask(`tasks/update/${id}`, task)
+    .then(function (response) {
+      if (response.message === "Task updated!") {
+        alert("Task updated!");
+        getTasks()
+          .then(function (tasks) {
+            renderTasks(tasks.data);
+          })
+          .catch(function (error) {
+            alert(error);
+          });
+      } else {
+        alert("Something went wrong!");
+      }
+    })
+    .finally(function () {
+      editTaskButton.attr("disabled", false);
+    });
 }
 
 export default editTask;

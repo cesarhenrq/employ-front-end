@@ -1,134 +1,78 @@
 class AjaxRequest {
-  static login(url, data) {
+  static sendRequest(url, type, contentType, data, headers) {
     const requestUrl = "https://employ-back-end-1fa428ae58ff.herokuapp.com/";
+
+    const requestOptions = {
+      url: requestUrl + url,
+      type,
+      contentType,
+      data,
+      headers,
+    };
 
     return new Promise((resolve, reject) => {
       $.ajax({
-        url: requestUrl + url,
-        type: "POST",
-        contentType: "application/json",
-        data: JSON.stringify(data),
-        success: function (response) {
-          resolve(response);
-        },
-        error: function (xhr, status, error) {
-          reject(error);
-        },
+        ...requestOptions,
+        success: resolve,
+        error: reject,
       });
     });
+  }
+
+  static login(url, data) {
+    const contentType = "application/json";
+
+    return this.sendRequest(url, "POST", contentType, JSON.stringify(data));
   }
 
   static register(url, data) {
-    const requestUrl = "https://employ-back-end-1fa428ae58ff.herokuapp.com/";
+    const contentType = "application/json";
 
-    return new Promise((resolve, reject) => {
-      $.ajax({
-        url: requestUrl + url,
-        type: "POST",
-        contentType: "application/json",
-        data: JSON.stringify(data),
-        success: function (response) {
-          resolve(response);
-        },
-        error: function (xhr, status, error) {
-          reject(error);
-        },
-      });
-    });
+    return this.sendRequest(url, "POST", contentType, JSON.stringify(data));
   }
 
   static addTask(url, data) {
-    const requestUrl = "https://employ-back-end-1fa428ae58ff.herokuapp.com/";
-
+    const contentType = "application/json";
     const token = localStorage.getItem("token");
+    const headers = { Authorization: `Bearer ${token}` };
 
-    return new Promise((resolve, reject) => {
-      $.ajax({
-        url: requestUrl + url,
-        type: "POST",
-        contentType: "application/json",
-        data: JSON.stringify(data),
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        success: function (response) {
-          resolve(response);
-        },
-        error: function (xhr, status, error) {
-          reject(error);
-        },
-      });
-    });
+    return this.sendRequest(
+      url,
+      "POST",
+      contentType,
+      JSON.stringify(data),
+      headers
+    );
   }
 
   static getTasks(url) {
-    const requestUrl = "https://employ-back-end-1fa428ae58ff.herokuapp.com/";
-
+    const contentType = "application/json";
     const token = localStorage.getItem("token");
+    const headers = { authorization: `Bearer ${token}` };
 
-    return new Promise((resolve, reject) => {
-      $.ajax({
-        url: requestUrl + url,
-        type: "GET",
-        contentType: "application/json",
-        headers: {
-          authorization: `Bearer ${token}`,
-        },
-        success: function (response) {
-          resolve(response);
-        },
-        error: function (xhr, status, error) {
-          reject(error);
-        },
-      });
-    });
+    return this.sendRequest(url, "GET", contentType, null, headers);
   }
 
   static deleteTask(url) {
-    const requestUrl = "https://employ-back-end-1fa428ae58ff.herokuapp.com/";
-
+    const contentType = "application/json";
     const token = localStorage.getItem("token");
+    const headers = { authorization: `Bearer ${token}` };
 
-    return new Promise((resolve, reject) => {
-      $.ajax({
-        url: requestUrl + url,
-        type: "POST",
-        contentType: "application/json",
-        headers: {
-          authorization: `Bearer ${token}`,
-        },
-        success: function (response) {
-          resolve(response);
-        },
-        error: function (xhr, status, error) {
-          reject(error);
-        },
-      });
-    });
+    return this.sendRequest(url, "POST", contentType, null, headers);
   }
 
   static editTask(url, data) {
-    const requestUrl = "https://employ-back-end-1fa428ae58ff.herokuapp.com/";
-
+    const contentType = "application/json";
     const token = localStorage.getItem("token");
+    const headers = { authorization: `Bearer ${token}` };
 
-    return new Promise((resolve, reject) => {
-      $.ajax({
-        url: requestUrl + url,
-        type: "POST",
-        contentType: "application/json",
-        data: JSON.stringify(data),
-        headers: {
-          authorization: `Bearer ${token}`,
-        },
-        success: function (response) {
-          resolve(response);
-        },
-        error: function (xhr, status, error) {
-          reject(error);
-        },
-      });
-    });
+    return this.sendRequest(
+      url,
+      "POST",
+      contentType,
+      JSON.stringify(data),
+      headers
+    );
   }
 }
 

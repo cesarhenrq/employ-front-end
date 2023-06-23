@@ -19,3 +19,5 @@ npm run dev
 ```
 Ele irá criar um servidor local onde a aplicação rodará em cima. A saída desse comando vai ser algo como: localhost/porta.
 Você deve copiar isso e colar no seu navegador. Com isso você poderá ver a tela inicial da aplicação.
+## Implantação
+O sistema está depositado na Vercel, você pode acessá-lo por esse link: https://employ-front-end.vercel.app/index.html . Para essa implantação funcionar foi necessário adicionar os arquivos ```vercel.json``` e ```vite.config.js``` apenas para funcionar na plataforma citada. Não há garantias que vá funcionar em outras plataformas.

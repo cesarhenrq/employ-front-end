@@ -22,8 +22,8 @@ Você deve copiar isso e colar no seu navegador. Com isso você poderá ver a te
 ## Implantação
 O sistema está depositado na Vercel, você pode acessá-lo por esse link: https://employ-front-end.vercel.app/index.html . Para essa implantação funcionar foi necessário adicionar os arquivos ```vercel.json``` e ```vite.config.js``` apenas para funcionar na plataforma citada. Não há garantias que vá funcionar em outras plataformas.
 ## Construído com
-● HTML: Linguaguem de Marcação de Hipertexto.
-● CSS: Folhas de Estilo em Cascatas.
-● JavaScript: Linguaguem de programação com suporte de script para manipulação do DOM.
-● JQuery: Biblioteca JavaScript que permite manipular o DOM de forma mais simples.
-● Ajax: Nas requisões para comunicação com o servidor.
+* HTML: Linguaguem de Marcação de Hipertexto.
+* CSS: Folhas de Estilo em Cascatas.
+* JavaScript: Linguaguem de programação com suporte de script para manipulação do DOM.
+* JQuery: Biblioteca JavaScript que permite manipular o DOM de forma mais simples.
+* Ajax: Nas requisões para comunicação com o servidor.
